@@ -6,9 +6,10 @@ Si une commande ne passe pas, essayez de savoir pourquoi avant de continuer.
 ## Prérequis
 
 - Téléchargez et installez les outils suivants :
-    - [PowerShell 3.0+](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
+    - [PowerShell 3.0+](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855) (pour vérifier votre version : `$PSVersionTable.PSVersion`)
     - [Git](http://git-scm.com/download/win) (Git pour Eclipse ne suffit pas ; associez les .sh)
 - [Téléchargez et installez Python 2.7](https://www.python.org/download/releases/2.7/)
+- Vérifiez que `X:\chemin\d'installation\Python` et `X:\chemin\d'installation\Python\Scripts` sont bien dans le Path (Par défaut : `C:\Python27` et `C:\Python27\Scripts`).
 - Installez setuptools : Démarrez [Powershell](http://fr.wikipedia.org/wiki/Windows_PowerShell) **en mode administrateur** et lancez la commande suivante : `(Invoke-WebRequest https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py).Content | python -`
 - Redémarrez Powershell
 - Installez pip : `easy_install pip`
