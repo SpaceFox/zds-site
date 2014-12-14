@@ -56,7 +56,6 @@ Une fois dans votre environnement python (`source zdsenv/bin/activate` si `virtu
 
 ```console
 pip install --upgrade -r requirements.txt
-python manage.py syncdb
 python manage.py migrate
 python manage.py runserver
 ```

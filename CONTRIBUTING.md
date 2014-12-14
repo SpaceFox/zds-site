@@ -17,7 +17,7 @@ Les contributions externes sont les bienvenues !
 4. Assurez-vous que l'intégralité des tests passent : `python manage.py test`
 5. Assurez-vous que le code suit la [PEP-8](http://legacy.python.org/dev/peps/pep-0008/) : `flake8 --exclude=migrations,urls.py,settings.py --max-line-length=120 zds`
 6. Si vous avez fait des modifications du _front_, jouez les tests associés : `gulp test`
-7. Si vous modifiez le modèle (les fichiers models.py), n'oubliez pas de créer les fichiers de migration : `python manage.py schemamigration app_name --auto`
+7. Si vous modifiez le modèle (les fichiers models.py), n'oubliez pas de créer les fichiers de migration : `python manage.py schemamigrations app_name`
 8. Si vous avez ajouté/modifié une chaine de caractère, pensez à génerer le fichier de traduction : `python manage.py makemessages -l en`
 9. Si votre travail nécessite des actions spécifiques lors du déploiement, précisez-les dans le fichier [update.md](update.md).
 10. Poussez votre travail et faites une _pull request_

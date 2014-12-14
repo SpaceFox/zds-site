@@ -35,7 +35,6 @@ Si vous comptez contribuer au front-end, rendez-vous sur [la documentation dédi
 - Dans la console PowerShell via l'environnement zdsenv installez les dépendances.
     - `easy_install lxml`
     - `pip install -r requirements.txt`
-    - `python manage.py syncdb`
     - `python manage.py migrate`
     - `python manage.py runserver`
 - Pour redémarrer virtualenv les fois suivantes : `~\.virtualenvs\zdsenv\Scripts\activate.ps1`
