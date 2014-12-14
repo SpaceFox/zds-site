@@ -3,6 +3,9 @@
 import os
 from django.utils.translation import gettext_lazy as _
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 # INTERNAL_IPS = ('127.0.0.1',)  # debug toolbar
@@ -17,7 +20,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'base.db',
+        'NAME': os.path.join(BASE_DIR, 'base.db'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
