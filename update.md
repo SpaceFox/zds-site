@@ -98,3 +98,21 @@ Tout est déjà prêt dans les fixtures dédiées à cela :
 ```
 python load_factory_data.py fixtures/advanced/aide_tuto_media.yaml
 ```
+
+
+Actions à faire pour mettre en prod la version : v1.5
+=====================================================
+
+Issue #1455 Django 1.7
+----------------------
+
+**Avant** de lancer la migration de la base, prévenir Django que `easy_thumbnail` est déjà OK : 
+
+
+```
+python manage.py migrate --fake easy_thumbnails
+```
+
+Le reste l'est aussi mais il est incapable de le détecter tout seul pour cette app.
+
+Désinstaller south: `pip uninstall south`. La MAJ de Django de la 1.6 à la 1.7 sera faite par le script (via la mise à jour des _requirements_).
