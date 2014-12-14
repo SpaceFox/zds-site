@@ -18,7 +18,7 @@ from zds.article.models import Article
 from zds.forum.models import Post, Topic
 from zds.tutorial.models import Tutorial
 from zds.utils.models import Alert
-from django.utils.importlib import import_module
+from importlib import import_module
 
 
 class Profile(models.Model):
