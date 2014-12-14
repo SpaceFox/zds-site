@@ -7,7 +7,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User, Group, SiteProfileNotAvailable
+from django.contrib.auth.models import User, Group
 from django.core.context_processors import csrf
 from django.core.exceptions import PermissionDenied
 from django.core.mail import EmailMultiAlternatives
@@ -185,11 +185,8 @@ def details(request, user_name):
     """Displays details about a profile."""
 
     usr = get_object_or_404(User, username=user_name)
-    try:
-        profile = usr.profile
-        bans = Ban.objects.filter(user=usr).order_by("-pubdate")
-    except SiteProfileNotAvailable:
-        raise Http404
+    profile = usr.profile
+    bans = Ban.objects.filter(user=usr).order_by("-pubdate")
 
     # refresh moderation chart
     if request.user.has_perm("member.change_profile"):
