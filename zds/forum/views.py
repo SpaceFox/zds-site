@@ -1054,7 +1054,7 @@ def find_post(request, user_pk):
 
 @login_required
 def followed_topics(request):
-    followed_topics = request.user.get_profile().get_followed_topics()
+    followed_topics = request.user.profile.get_followed_topics()
 
     # Paginator
 
