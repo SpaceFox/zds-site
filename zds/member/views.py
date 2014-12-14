@@ -60,9 +60,9 @@ def index(request):
             results.append(member_json)
         data = json.dumps(results)
 
-        mimetype = "application/json"
+        content_type = "application/json"
 
-        return HttpResponse(data, mimetype)
+        return HttpResponse(data, content_type)
 
     else:
         members = User.objects.order_by("-date_joined")
