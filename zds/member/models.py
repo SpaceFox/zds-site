@@ -107,10 +107,9 @@ class Profile(models.Model):
 
     def get_city(self):
         """Return physical adress by geolocalisation."""
-        last_ip_address = self.last_ip_address
         g = GeoIP()
         geo = g.city(self.last_ip_address)
-        if not geo is None:
+        if geo is not None:
             return u'{0}, {1}'.format(geo['city'], geo['country_name'])
         return ''
 
