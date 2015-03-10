@@ -7,7 +7,8 @@ python:
   - 2.7
 
 env:
-  - TEST_APP="-e back_mysql"
+  - TEST_APP="-e back_mysql zds.tutorial"
+  - TEST_APP="-e back_mysql zds.article zds.forum zds.member zds.utils zds.gallery zds.mp zds.pages"
   - TEST_APP="-e front"
 
 notifications:
@@ -24,7 +25,6 @@ cache:
 before_script:
   # database services
   - mysql -e 'create database zds_test;'
-  - sudo mv zds/settings_test.py zds/settings_prod.py
   - sudo apt-get -y install python-mysqldb
   - sudo apt-get -y install libmysqlclient-dev
 
