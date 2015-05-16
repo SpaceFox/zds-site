@@ -24,7 +24,10 @@ class PrivateTopic(models.Model):
     title = models.CharField(u'Titre', max_length=130)
     subtitle = models.CharField(u'Sous-titre', max_length=200, blank=True)
     author = models.ForeignKey(User, verbose_name=u'Auteur', related_name='author', db_index=True)
+    tmp_author = models.ForeignKey('member.Profile', verbose_name=u'Auteur', related_name='author', db_index=True)
     participants = models.ManyToManyField(User, verbose_name=u'Participants', related_name='participants',
+                                          db_index=True)
+    tmp_participants = models.ManyToManyField('member.Profile', verbose_name=u'Participants', related_name='participants',
                                           db_index=True)
     last_message = models.ForeignKey('PrivatePost', null=True, related_name='last_message',
                                      verbose_name=u'Dernier message')
@@ -182,6 +185,7 @@ class PrivatePost(models.Model):
 
     privatetopic = models.ForeignKey(PrivateTopic, verbose_name=u'Message privé', db_index=True)
     author = models.ForeignKey(User, verbose_name='Auteur', related_name='privateposts', db_index=True)
+    tmp_author = models.ForeignKey('member.Profile', verbose_name='Auteur', related_name='privateposts', db_index=True)
     text = models.TextField(u'Texte')
     text_html = models.TextField(u'Texte en HTML')
     pubdate = models.DateTimeField(u'Date de publication', auto_now_add=True, db_index=True)
@@ -225,6 +229,7 @@ class PrivateTopicRead(models.Model):
     privatetopic = models.ForeignKey(PrivateTopic, db_index=True)
     privatepost = models.ForeignKey(PrivatePost, db_index=True)
     user = models.ForeignKey(User, related_name='privatetopics_read', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='privatetopics_read', db_index=True)
 
     def __unicode__(self):
         """

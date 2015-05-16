@@ -50,6 +50,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=80)
 
     authors = models.ManyToManyField(User, verbose_name='Auteurs', db_index=True)
+    tmp_authors = models.ManyToManyField('member.Profile', verbose_name='Auteurs', db_index=True)
 
     create_at = models.DateTimeField('Date de création')
     pubdate = models.DateTimeField(
@@ -370,6 +371,7 @@ class ArticleRead(models.Model):
     article = models.ForeignKey(Article, db_index=True)
     reaction = models.ForeignKey(Reaction, db_index=True)
     user = models.ForeignKey(User, related_name='reactions_read', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='reactions_read', db_index=True)
 
     def __unicode__(self):
         return u'<Article "{0}" lu par {1}, #{2}>'.format(self.article,
@@ -415,6 +417,10 @@ class Validation(models.Model):
     date_proposition = models.DateTimeField('Date de proposition', db_index=True)
     comment_authors = models.TextField('Commentaire de l\'auteur')
     validator = models.ForeignKey(User,
+                                  verbose_name='Validateur',
+                                  related_name='articles_author_validations',
+                                  blank=True, null=True, db_index=True)
+    tmp_validator = models.ForeignKey('member.Profile',
                                   verbose_name='Validateur',
                                   related_name='articles_author_validations',
                                   blank=True, null=True, db_index=True)

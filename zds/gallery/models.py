@@ -52,6 +52,7 @@ class UserGallery(models.Model):
     )
 
     user = models.ForeignKey(User, verbose_name=_(u'Membre'), db_index=True)
+    profile = models.ForeignKey('member.Profile', verbose_name=_(u'Membre'), db_index=True)
     gallery = models.ForeignKey('Gallery', verbose_name=_(u'Galerie'), db_index=True)
     mode = models.CharField(max_length=1, choices=MODE_CHOICES, default=GALLERY_READ)
 

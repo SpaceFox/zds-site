@@ -320,6 +320,7 @@ class TokenForgotPassword(models.Model):
         verbose_name_plural = 'Tokens de mots de passe oubliés'
 
     user = models.ForeignKey(User, verbose_name='Utilisateur', db_index=True)
+    profile = models.ForeignKey('member.Profile', verbose_name='Utilisateur', db_index=True)
     token = models.CharField(max_length=100, db_index=True)
     date_end = models.DateTimeField('Date de fin')
 
@@ -341,6 +342,7 @@ class TokenRegister(models.Model):
         verbose_name_plural = 'Tokens  d\'inscription'
 
     user = models.ForeignKey(User, verbose_name='Utilisateur', db_index=True)
+    profile = models.ForeignKey('member.Profile', verbose_name='Utilisateur', db_index=True)
     token = models.CharField(max_length=100, db_index=True)
     date_end = models.DateTimeField('Date de fin')
 
@@ -379,7 +381,10 @@ class Ban(models.Model):
         verbose_name_plural = 'Sanctions'
 
     user = models.ForeignKey(User, verbose_name='Sanctionné', db_index=True)
+    profile = models.ForeignKey('member.Profile', verbose_name='Sanctionné', db_index=True)
     moderator = models.ForeignKey(User, verbose_name='Moderateur',
+                                  related_name='bans', db_index=True)
+    tmp_moderator = models.ForeignKey('member.Profile', verbose_name='Moderateur',
                                   related_name='bans', db_index=True)
     type = models.CharField('Type', max_length=80, db_index=True)
     text = models.TextField('Explication de la sanction')
@@ -403,8 +408,10 @@ class KarmaNote(models.Model):
         verbose_name_plural = 'Notes de karma'
 
     user = models.ForeignKey(User, related_name='karmanote_user', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='karmanote_user', db_index=True)
     # TODO: coherence, "staff" is called "moderator" in Ban model.
     staff = models.ForeignKey(User, related_name='karmanote_staff', db_index=True)
+    tmp_staff = models.ForeignKey('member.Profile', related_name='karmanote_staff', db_index=True)
     # TODO: coherence, "comment" is called "text" in Ban model.
     comment = models.CharField('Commentaire', max_length=150)
     value = models.IntegerField('Valeur')

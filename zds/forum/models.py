@@ -173,6 +173,8 @@ class Topic(models.Model):
     forum = models.ForeignKey(Forum, verbose_name='Forum', db_index=True)
     author = models.ForeignKey(User, verbose_name='Auteur',
                                related_name='topics', db_index=True)
+    tmp_author = models.ForeignKey('member.Profile', verbose_name='Auteur',
+                               related_name='topics', db_index=True)
     last_message = models.ForeignKey('Post', null=True,
                                      related_name='last_message',
                                      verbose_name='Dernier message')
@@ -395,6 +397,7 @@ class TopicRead(models.Model):
     topic = models.ForeignKey(Topic, db_index=True)
     post = models.ForeignKey(Post, db_index=True)
     user = models.ForeignKey(User, related_name='topics_read', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='topics_read', db_index=True)
 
     def __unicode__(self):
         return u'<Sujet "{0}" lu par {1}, #{2}>'.format(self.topic,
@@ -414,6 +417,7 @@ class TopicFollowed(models.Model):
 
     topic = models.ForeignKey(Topic, db_index=True)
     user = models.ForeignKey(User, related_name='topics_followed', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='topics_followed', db_index=True)
     email = models.BooleanField('Notification par courriel', default=False, db_index=True)
 
     def __unicode__(self):

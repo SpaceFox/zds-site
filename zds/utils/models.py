@@ -175,7 +175,12 @@ class Comment(models.Model):
 
     author = models.ForeignKey(User, verbose_name='Auteur',
                                related_name='comments', db_index=True)
+    tmp_author = models.ForeignKey('member.Profile', verbose_name='Auteur',
+                               related_name='comments', db_index=True)
     editor = models.ForeignKey(User, verbose_name='Editeur',
+                               related_name='comments-editor',
+                               null=True, blank=True)
+    tmp_editor = models.ForeignKey('member.Profile', verbose_name='Editeur',
                                related_name='comments-editor',
                                null=True, blank=True)
     ip_address = models.CharField('Adresse IP de l\'auteur ', max_length=39)
@@ -219,6 +224,10 @@ class Alert(models.Model):
                                verbose_name='Auteur',
                                related_name='alerts',
                                db_index=True)
+    tmp_author = models.ForeignKey('member.Profile',
+                               verbose_name='Auteur',
+                               related_name='alerts',
+                               db_index=True)
     comment = models.ForeignKey(Comment,
                                 verbose_name='Commentaire',
                                 related_name='alerts',
@@ -255,6 +264,7 @@ class CommentLike(models.Model):
 
     comments = models.ForeignKey(Comment, db_index=True)
     user = models.ForeignKey(User, related_name='post_liked', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='post_liked', db_index=True)
 
 
 class CommentDislike(models.Model):
@@ -266,6 +276,7 @@ class CommentDislike(models.Model):
 
     comments = models.ForeignKey(Comment, db_index=True)
     user = models.ForeignKey(User, related_name='post_disliked', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='post_disliked', db_index=True)
 
 
 class Tag(models.Model):

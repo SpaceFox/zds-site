@@ -52,6 +52,7 @@ class Tutorial(models.Model):
     description = models.CharField('Description', max_length=200)
     source = models.CharField('Source', max_length=200)
     authors = models.ManyToManyField(User, verbose_name='Auteurs', db_index=True)
+    tmp_authors = models.ManyToManyField('member.Profile', verbose_name='Auteurs', db_index=True)
 
     subcategory = models.ManyToManyField(SubCategory,
                                          verbose_name='Sous-Catégorie',
@@ -517,6 +518,7 @@ class TutorialRead(models.Model):
     tutorial = models.ForeignKey(Tutorial, db_index=True)
     note = models.ForeignKey(Note, db_index=True)
     user = models.ForeignKey(User, related_name='tuto_notes_read', db_index=True)
+    profile = models.ForeignKey('member.Profile', related_name='tuto_notes_read', db_index=True)
 
     def __unicode__(self):
         return u'<Tutoriel "{0}" lu par {1}, #{2}>'.format(self.tutorial,
@@ -1120,6 +1122,10 @@ class Validation(models.Model):
     date_proposition = models.DateTimeField('Date de proposition', db_index=True)
     comment_authors = models.TextField('Commentaire de l\'auteur')
     validator = models.ForeignKey(User,
+                                  verbose_name='Validateur',
+                                  related_name='author_validations',
+                                  blank=True, null=True, db_index=True)
+    tmp_validator = models.ForeignKey('member.Profile',
                                   verbose_name='Validateur',
                                   related_name='author_validations',
                                   blank=True, null=True, db_index=True)
