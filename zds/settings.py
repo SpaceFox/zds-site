@@ -166,8 +166,6 @@ INSTALLED_APPS = (
     'corsheaders',
     'oauth2_provider',
 
-    # Apps DB tables are created in THIS order by default
-    # --> Order is CRITICAL to properly handle foreign keys
     'zds.utils',
     'zds.pages',
     'zds.gallery',
