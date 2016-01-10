@@ -364,3 +364,23 @@ RECAPTCHA_PRIVATE_KEY = 'la-cle-ici'
 ```
 
 (les clés d'applications sont à créer auprès de l'association)
+
+
+Actions à faire pour mettre en prod la version 16
+=================================================
+
+Indexation delta des forums
+---------------------------
+
+Mettre à jour la commande d'indexation, dans `/etc/systemd/system/zds-index-solr.service` :
+
+```
+ExecStart=/opt/zdsenv/bin/python /opt/zdsenv/ZesteDeSavoir/manage.py update_index
+```
+
+devient :
+
+
+```
+ExecStart=/opt/zdsenv/bin/python /opt/zdsenv/ZesteDeSavoir/manage.py update_index --remove --age=1
+```
