@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation dans Docker &mdash; Documentation Zeste de Savoir dev</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Installation sous Linux" href="install-linux.html" />
+    <link rel="prev" title="Installation" href="../install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Zeste de Savoir
+          </a>
+              <div class="version">
+                dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guides.html">Guides pas-à-pas</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../install.html">Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation dans Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-linux.html">Installation sous Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-osx.html">Installation sous macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-windows.html">Installation sous Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra-install-es.html">Installation de Elasticsearch (pour la recherche)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra-install-frontend.html">Installation du frontend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra-install-latex.html">Installation de LaTeX et de la <em>template</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="extra-zmd.html">Installation et utilisation de zmarkdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribuer à Zeste de Savoir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html"><em>Workflow</em> et détails pratiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-end.html">Le <em>back-end</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../back-end-code.html">Documentation technique du <em>back-end</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../front-end.html">Le <em>front-end</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Makefile et autres outils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../delay-issue.html">Problème de lenteur lors du dev ?</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Zeste de Savoir</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../install.html">Installation</a> &raquo;</li>
+      <li>Installation dans Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/install/install-docker.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-dans-docker">
+<h1>Installation dans Docker<a class="headerlink" href="#installation-dans-docker" title="Lien permanent vers ce titre"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Par manque de développeurs utilisant Docker au sein de l’équipe de
+développement de ZdS, cette section n’est guère fournie. Les instructions
+données ici ne le sont qu’à titre indicatif. N’hésitez pas à signaler tout
+problème ou proposer des améliorations !</p>
+</div>
+<p>L’installation de l’environnement de développement dans Docker se base sur <a class="reference external" href="install-linux.html">l’installation sous Linux</a>.</p>
+<p>Lancez un shell interactif dans un conteneur basé sur Debian :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it -p <span class="m">8000</span>:8000 debian:buster
+</pre></div>
+</div>
+<p>Une fois dans le conteneur, saisissez les commandes suivantes :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># On se place dans le $HOME</span>
+<span class="nb">cd</span>
+
+<span class="c1"># Permet d&#39;utiliser correctement apt</span>
+<span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+
+<span class="c1"># Installez les paquets minimaux requis</span>
+apt update
+apt install sudo make vim git
+
+<span class="c1"># Clonez le dépôt de ZdS</span>
+git clone https://github.com/&lt;votre login&gt;/zds-site.git
+<span class="nb">cd</span> zds-site/
+
+<span class="c1"># Installez ZdS</span>
+make install-linux
+
+<span class="c1"># Nécessaire pour avoir nvm dans le PATH</span>
+<span class="nb">source</span> ../.bashrc
+
+<span class="c1"># À partir de maintenant, les commandes ne sont plus spécifiques à l&#39;utilisation de Docker.</span>
+
+<span class="c1"># Lancement de ZdS</span>
+<span class="nb">source</span> zdsenv/bin/activate
+make zmd-start
+make run-back
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="../install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="install-linux.html" class="btn btn-neutral float-right" title="Installation sous Linux" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Zeste de Savoir.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
